@@ -1,0 +1,23 @@
+@charset "utf-8";
+.header {
+    height: .88rem;
+    line-height: .88rem;
+    background: #F72F3A;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    font-size: .3rem;
+}
+
+.header .iconfont {
+    position: absolute;
+    right: .3rem;
+    color: #fff;
+}
+
+.header .iconfanhui {
+    left: .3rem;
+    right: auto;
+}

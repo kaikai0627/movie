@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>详情</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1076111_gfum1llshv.css">
+    <link rel="stylesheet" href="../css/common/reset.css">
+    <link rel="stylesheet" href="../css/common/header.css">
+    <link rel="stylesheet" href="../css/movieDetail.css">
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/font.js"></script>
+</head>
+<body>
+<header class="header text-center">
+    <a href="javascript:history.go(-1)" class="iconfont iconfanhui"></a>
+    <span id="title"></span>
+</header>
+<div class="film-img">
+    <img src="" alt="" id="filmImg" onerror="javascript:this.src='../img/loading.gif';">
+</div>
+<div class="main" id="main">
+
+</div>
+<script>
+    // 获取路径参数
+    function GetUrlParam(paraName) {
+        var url = document.location.toString();
+        var arrObj = url.split("?");
+
+        if (arrObj.length > 1) {
+            var arrPara = arrObj[1].split("&");
+            var arr;
+
+            for (var i = 0; i < arrPara.length; i++) {
+                arr = arrPara[i].split("=");
+
+                if (arr != null && arr[0] == paraName) {
+                    return arr[1];
+                }
+            }
+            return "";
+        } else {
+            return "";
+        }
+    }
+
+    $(function () {
+        $.ajax({
+            type: "get",
+            url: "https://api.douban.com/v2/movie/subject/" + GetUrlParam("id"),
+            dataType: "jsonp",
+            success: function (data) {
+                $("#title").text(data.title);   //影片名
+                $("#filmImg").attr("src", data.images.small); //影片图片
+                var htm = '';
+                htm += '<div class="movie-info">' +
+                    '<div class="movie-title">' + data.title + '</div>' +
+                    '<div class="info-item">原名：' + data.original_title + '</div>' +
+                    '<div class="info-item">' + data.year + '/';
+                for (var i = 0; i < data.countries.length; i++) {
+                    htm += data.countries[i];
+                }
+                htm += '</div>' +
+                    '<div class="info-item">';
+                for (var j = 0; j < data.genres.length; j++) {
+                    if (j + 1 == data.genres.length) {
+                        htm += data.genres[j];
+                    } else {
+                        htm += data.genres[j] + '/';
+                    }
+                }
+                htm += '</div>' +
+                    '<div class="give-a-mark">' +
+                    '<div class="no-m">豆瓣评分</div>' +
+                    '<div><b>' + data.rating.average + '</b></div>' +
+                    '<div>';
+                if (data.rating.average <= 4 && data.rating.average >= 2) {
+                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>';
+                } else if (data.rating.average <= 6 && data.rating.average >= 4) {
+                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>';
+                } else if (data.rating.average <= 8 && data.rating.average >= 6) {
+                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>';
+                } else if (data.rating.average <= 10 && data.rating.average >= 8) {
+                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>';
+                } else if (data.rating.average == 10) {
+                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>' +
+                        '<span class="rating-star rating-star-medium-full"></span>';
+                } else {
+                    htm += '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                        '<span class="rating-star rating-star-medium-gray"></span>';
+                }
+                htm += '</div>' +
+                    '<div>' + data.ratings_count + '人</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="movie-abstract">' +
+                    '<div class="movie-hd">简介</div>' +
+                    '<div class="movie-text">' +
+                    data.summary +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="movie-abstract">' +
+                    '<div class="movie-hd">影人</div>' +
+                    '<div class="movie-actor">';
+                for (var y = 0; y < data.casts.length; y++) {
+                    htm += '<div class="actor-item">' +
+                        '<img src="' + data.casts[y].avatars.small + '" onerror="javascript:this.src=\'../img/loading.gif\';" alt="">' +
+                        '</div>';
+                }
+                htm += '</div>' +
+                    '</div>';
+                $("#main").html(htm);
+            }
+        });
+    });
+</script>
+</body>
+</html>

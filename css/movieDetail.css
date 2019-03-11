@@ -1,0 +1,104 @@
+@charset "utf-8";
+.film-img {
+    background: #F72F3A;
+    padding: calc(.88rem - 1px + .2rem) 0 .2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 4.08rem;
+    z-index: 9;
+}
+
+.film-img img {
+    width: 2rem;
+    margin: 0 auto;
+}
+
+.main {
+    padding: 4.1rem .34rem 0;
+}
+
+.movie-info {
+    position: relative;
+    padding-right: 3rem;
+}
+
+.movie-title {
+    font-size: .35rem;
+    padding: .3rem 0;
+}
+
+.info-item {
+    color: #999;
+    font-size: .24rem;
+}
+
+.give-a-mark {
+    position: absolute;
+    top: .3rem;
+    right: 0;
+    border: 1px solid #eee;
+    padding: .2rem .3rem;
+    background: #fff;
+    border-radius: 4px;
+    text-align: center;
+    color: #999;
+    font-size: .24rem;
+    line-height: .3rem
+}
+
+.give-a-mark>div {
+    margin-top: .1rem;
+}
+
+.give-a-mark>div.no-m {
+    margin-top: 0;
+}
+
+.rating-star {
+    display: inline-block;
+    margin-right: 1px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 13px;
+    background-size: 13px 13px;
+}
+
+.rating-star-medium-full {
+    background-image: url("../img/star-01.png");
+}
+
+.rating-star-medium-gray {
+    background-image: url("../img/star-02.png");
+}
+
+.movie-abstract {
+    margin-top: .6rem;
+    border-top: 1px solid #eee;
+}
+
+.movie-hd {
+    padding: .3rem 0;
+    font-size: .3rem;
+}
+
+.movie-text {
+    color: #999;
+    text-indent: .5rem;
+}
+
+.movie-actor {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.actor-item {
+    width: 2rem;
+    display: inline-block;
+    margin-right: .1rem;
+}
+
+.actor-item img {
+    width: 100%;
+}

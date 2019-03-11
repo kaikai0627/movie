@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>搜索</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1076111_gfum1llshv.css">
+    <link rel="stylesheet" href="../css/common/reset.css">
+    <link rel="stylesheet" href="../css/common/header.css">
+    <link rel="stylesheet" href="../css/movieList.css">
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/font.js"></script>
+</head>
+<body>
+<header class="header text-center">
+    <a href="javascript:history.go(-1)" class="iconfont iconfanhui"></a>搜索
+</header>
+<div class="search-ipt">
+    <i class="iconfont iconsousuo"></i>
+    <input type="text" id="movieName"/>
+    <button type="button" class="handIpt search-button pull-right">搜索</button>
+</div>
+<div class="h-09"></div>
+<div class="main search-main" id="list"></div>
+<script>
+    $(function () {
+        // 搜索时执行ajax 查询匹配的数据 返回到list
+        $(".handIpt").click(function () {
+            var movie_name = $("#movieName").val();
+            if (movie_name) {
+                var str = '';
+                str += '<div class="loading">' +
+                    '<img src="../img/loading.gif">' +
+                    '</div>';
+                $("#list").html(str);
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.douban.com/v2/movie/search?q=" + movie_name,
+                    dataType: "jsonp",
+                    success: function (data) {
+                        var list = data.subjects;  //电影列表
+                        if (list.length != 0) {
+                            var htm = '';
+                            for (var i = 0; i < list.length; i++) {
+                                htm += '<div class="movie-item clearfix" onclick="movieDetail(' + list[i].id + ')">' +
+                                    '<div class="item-img pull-left">' +
+                                    '<img src="' + list[i].images.large + '" alt="" onerror="javascript:this.src=\'../img/loading.gif\';">' +
+                                    '</div>' +
+                                    '<div class="item-synopsis">' +
+                                    '<div class="item-title">' + list[i].title + '</div>' +
+                                    '<div class="item-graded">';
+                                if (list[i].rating.average <= 4 && list[i].rating.average >= 2) {
+                                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>';
+                                } else if (list[i].rating.average <= 6 && list[i].rating.average >= 4) {
+                                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>';
+                                } else if (list[i].rating.average <= 8 && list[i].rating.average >= 6) {
+                                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>';
+                                } else if (list[i].rating.average <= 10 && list[i].rating.average >= 8) {
+                                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>';
+                                } else if (list[i].rating.average == 10) {
+                                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>' +
+                                        '<span class="rating-star rating-star-medium-full"></span>';
+                                } else {
+                                    htm += '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>' +
+                                        '<span class="rating-star rating-star-medium-gray"></span>';
+                                }
+                                htm += list[i].rating.average +
+                                    '</div>' +
+                                    '<div class="item-figure">导演：';
+                                for (var d = 0; d < list[i].directors.length; d++) {
+                                    htm += '<span>' + list[i].directors[d].name + '</span>';
+                                }
+                                htm += '</div>' +
+                                    '<div class="item-figure">演员：';
+                                for (var j = 0; j < list[i].casts.length; j++) {
+                                    htm += '<span>' + list[i].casts[j].name + '</span>';
+                                }
+                                htm += '</div>' +
+                                    '<div class="item-figure">类型：';
+                                for (var l = 0; l < list[i].genres.length; l++) {
+                                    htm += '<span>' + list[i].genres[l] + '</span>、';
+                                }
+                                htm += '</div>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                        } else {
+                            $("#list").html("<span class='no-result'>没有搜索到，换个关键词吧</span>");
+                        }
+                        $("#list").html(htm);
+                    }
+                });
+            }
+        });
+        // 回车事件 调用搜索按钮单击事件
+        $(document).keydown(function (event) {
+            if (event.keyCode == 13) {
+                $(".handIpt").click();
+            }
+        });
+        // 获取焦点时显示搜索按钮 失去时隐藏
+        $("#movieName").focus(function () {
+            $(this).css("width", "83%");
+            $(".handIpt").css("margin", "0");
+        }).blur(function () {
+            $(this).css("width", "100%");
+            $(".handIpt").css("margin-right", "-1.5rem");
+        });
+    });
+
+    function movieDetail (id) {
+        window.location.href='movieDetails.html?id=' + id
+    }
+</script>
+</body>
+</html>
