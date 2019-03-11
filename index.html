@@ -7,9 +7,15 @@
 </head>
 <body>
 <script>
-    $(function () {
-        window.location.href='page/hotShowing.html'
-    });
+     function is_weixn(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            alert("此demo不支持微信内置浏览器，如需浏览请使用手机浏览器");
+        } else {
+            window.location.href='page/hotShowing.html'
+        }
+    }
+    is_weixn();
 </script>
 </body>
 </html>
