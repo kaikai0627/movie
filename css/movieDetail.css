@@ -91,6 +91,8 @@
 .movie-actor {
     white-space: nowrap;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;/*滚动过渡*/
+    padding-bottom: .2rem;
 }
 
 .actor-item {
