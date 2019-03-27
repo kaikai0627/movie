@@ -5,7 +5,7 @@
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>热映</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1076111_gfum1llshv.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1076111_gfum1llshv.css">
     <link rel="stylesheet" href="../css/common/reset.css">
     <link rel="stylesheet" href="../css/common/header.css">
     <link rel="stylesheet" href="../css/movieList.css">
@@ -32,110 +32,68 @@
     </a>
 </nav>
 <script>
-    $(function () {
+    var num = null;
+    function loadMovie(start,count) {
+        var start = start; //   数据的开始项
+        var count = count; //   请求的条数
         $.ajax({
             type: 'get',
-            url: 'https://api.douban.com/v2/movie/in_theaters',
+            url: 'https://api.douban.com/v2/movie/in_theaters?start=' + start + '&count=' + count,
             dataType: 'jsonp',
             success: function (data) {
                 var list = data.subjects;  //电影列表
-                var pages;
-                var pages_item = 6;  //每页显示的条数 6表示默认显示5条
-                var load_item = 5;   //每次加载的条数 默认每次加载5条
-                for (var p = 0; p < pages_item; p++) {
-                    if (p > list.length) {
-                        break;
-                    } else {
-                        pages = p; //每页显示的条数
-                    }
-                }
-
-                // 加载电影数据
-                function loadList(index) {
+                console.log(list);
+                if (list != "") {
+                    for (var i = 0; i < list.length; i++) {
                     var htm = '';
-                    htm += '<div class="movie-item clearfix" onclick="movieDetail(' + list[index].id + ')">' +
-                        '<div class="item-img pull-left">' +
-                        '<img src="' + list[index].images.small + '" alt="" onerror="javascript:this.src=\'../img/loading.gif\';">' +
-                        '</div>' +
-                        '<div class="item-synopsis">' +
-                        '<div class="item-title">' + list[index].title + '</div>' +
-                        '<div class="item-graded">';
-                    if (list[index].rating.average <= 4 && list[index].rating.average >= 2) {
-                        htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>';
-                    } else if (list[index].rating.average <= 6 && list[index].rating.average >= 4) {
-                        htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>';
-                    } else if (list[index].rating.average <= 8 && list[index].rating.average >= 6) {
-                        htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>';
-                    } else if (list[index].rating.average <= 10 && list[index].rating.average >= 8) {
-                        htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>';
-                    } else if (list[index].rating.average == 10) {
-                        htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>' +
-                            '<span class="rating-star rating-star-medium-full"></span>';
-                    } else {
-                        htm += '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>' +
-                            '<span class="rating-star rating-star-medium-gray"></span>';
-                    }
-                    htm += list[index].rating.average +
-                        '</div>' +
-                        '<div class="item-figure">导演：';
-                    for (var d = 0; d < list[index].directors.length; d++) {
-                        htm += '<span>' + list[index].directors[d].name + '</span>';
-                    }
-                    htm += '</div>' +
-                        '<div class="item-figure">演员：';
-                    for (var j = 0; j < list[index].casts.length; j++) {
-                        htm += '<span>' + list[index].casts[j].name + '</span>';
-                    }
-                    htm += '</div>' +
-                        '</div>' +
-                        '</div>';
-                    $("#list").append(htm);
-                }
-
-                for (var i = 0; i < pages; i++) {
-                    loadList(i);
-                }
-                // 页面滚动到底部时加载更多
-                $(window).scroll(function () {
-                    if (pages >= list.length - 1) {
-                        return false;
-                    } else {
-                        var scrollTop = $(this).scrollTop();
-                        var scrollHeight = $(document).height();
-                        var windowHeight = $(this).height();
-                        if (Math.ceil(scrollTop + windowHeight) == scrollHeight) {
-                            var page = pages;
-                            for (var i = page; i < page + load_item; i++) {
-                                pages++;
-                                loadList(i);
+                        htm += '<div class="movie-item clearfix" onclick="movieDetail(' + list[i].id + ')">' +
+                            '<div class="item-img pull-left">' +
+                            '<img src="' + list[i].images.small + '" alt="" onerror="javascript:this.src=\'../img/loading.gif\';">' +
+                            '</div>' +
+                            '<div class="item-synopsis">' +
+                            '<div class="item-title">' + list[i].title + '</div>' +
+                            '<div class="item-graded">';
+                        var stars = list[i].rating.stars.substring(0,1);
+                        for (var star = 0; star < 5; star++) {
+                            if (star < stars) { 
+                                htm += '<span class="rating-star rating-star-medium-full"></span>';
+                            } else {
+                                htm += '<span class="rating-star rating-star-medium-gray"></span>';
                             }
                         }
+                        htm += list[i].rating.average +
+                            '</div>' +
+                            '<div class="item-figure">导演：';
+                        for (var d = 0; d < list[i].directors.length; d++) {
+                            htm += '<span>' + list[i].directors[d].name + '</span>';
+                        }
+                        htm += '</div>' +
+                            '<div class="item-figure">演员：';
+                        for (var j = 0; j < list[i].casts.length; j++) {
+                            htm += '<span>' + list[i].casts[j].name + '</span>';
+                        }
+                        htm += '</div>' +
+                            '</div>' +
+                            '</div>';
+                        $("#list").append(htm);
                     }
-                });
+                    num += list.length;
+                    console.log(list.length);
+                }else {
+                    console.log("没有更多数据了");
+                }
             }
         })
+    }
+    loadMovie(0,20);
+    // 页面滚动到底部时加载更多
+    $(window).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        if (Math.ceil(scrollTop + windowHeight) == scrollHeight) {
+            loadMovie(num,20);
+        }
     });
 
     function movieDetail(id) {

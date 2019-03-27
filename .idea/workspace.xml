@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="62862f05-fd14-4202-92cc-ac29e0c3ed3e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/hotShowing.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/hotShowing.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/movieList.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/page/ranking.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/ranking.html" afterDir="false" />
+=======
+>>>>>>> 优化js
     </list>
     <ignored path="movie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +27,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/hotShowing.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
               <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="29" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page/hotShowing.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -37,7 +48,11 @@
         <entry file="file://$PROJECT_DIR$/page/ranking.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
               <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+=======
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -46,7 +61,11 @@
         <entry file="file://$PROJECT_DIR$/css/common/header.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
               <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+=======
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -54,17 +73,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/movieDetails.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
             <state relative-caret-position="281">
               <caret line="124" column="30" lean-forward="true" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+=======
+            <state relative-caret-position="280">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
               <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -77,8 +109,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/movieList.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
             <state relative-caret-position="233">
               <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+=======
+            <state relative-caret-position="630">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -86,8 +123,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/movieDetail.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
             <state relative-caret-position="429">
               <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+=======
+            <state relative-caret-position="1428">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -96,7 +138,11 @@
         <entry file="file://$PROJECT_DIR$/page/movieSearch.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
               <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+=======
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+>>>>>>> 优化js
             </state>
           </provider>
         </entry>
@@ -136,6 +182,7 @@
         <option value="$PROJECT_DIR$/page/movieList.html" />
         <option value="$PROJECT_DIR$/css/common/header.css" />
         <option value="$PROJECT_DIR$/css/movieList.css" />
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
         <option value="$PROJECT_DIR$/page/movieDetails.html" />
         <option value="$PROJECT_DIR$/css/movieDetail.css" />
         <option value="$PROJECT_DIR$/page/movieSearch.html" />
@@ -146,6 +193,20 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
+=======
+        <option value="$PROJECT_DIR$/page/movieSearch.html" />
+        <option value="$PROJECT_DIR$/page/ranking.html" />
+        <option value="$PROJECT_DIR$/page/hotShowing.html" />
+        <option value="$PROJECT_DIR$/page/movieDetails.html" />
+        <option value="$PROJECT_DIR$/css/movieDetail.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$USER_HOME$/Desktop/record/pagination/pages.html" />
+        <option value="$USER_HOME$/Desktop/mobileLst/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+>>>>>>> 优化js
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1944" />
@@ -157,7 +218,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
       <pane id="Scope" />
+=======
+>>>>>>> 优化js
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,6 +254,10 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
+=======
+      <pane id="Scope" />
+>>>>>>> 优化js
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,7 +265,11 @@
     <property name="FullScreen" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
     <property name="last_opened_file_path" value="D:/1工作目录" />
+=======
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Travel" />
+>>>>>>> 优化js
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -255,16 +327,30 @@
       <workItem from="1551938687728" duration="13254000" />
       <workItem from="1552007089677" duration="14133000" />
       <workItem from="1552266703480" duration="6815000" />
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
       <workItem from="1552283329819" duration="7609000" />
+=======
+      <workItem from="1552283329819" duration="9417000" />
+      <workItem from="1552294340407" duration="3531000" />
+      <workItem from="1552310667447" duration="1920000" />
+      <workItem from="1552354090270" duration="1255000" />
+>>>>>>> 优化js
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
     <option name="totallyTimeSpent" value="51780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
+=======
+    <option name="totallyTimeSpent" value="60294000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+>>>>>>> 优化js
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15250199" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -325,6 +411,7 @@
     <entry file="file://$PROJECT_DIR$/img/loading.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
+<<<<<<< 100901ccf215d9d7087f351a8b1a57424c391ff3
     <entry file="file://$PROJECT_DIR$/css/common/header.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -391,6 +478,80 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+=======
+    <entry file="file://$PROJECT_DIR$/img/star.png" />
+    <entry file="file://$PROJECT_DIR$/page/movieList.html" />
+    <entry file="file://$USER_HOME$/Desktop/record/pagination/pages.html" />
+    <entry file="file://$USER_HOME$/Desktop/mobileLst/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="75" column="75" selection-start-line="75" selection-start-column="75" selection-end-line="75" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#8;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#14;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#20;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#21;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/hotShowing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/ranking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/common/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/movieDetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/star-01.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/movieList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/movieDetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/movieSearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+>>>>>>> 优化js
         </state>
       </provider>
     </entry>

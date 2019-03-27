@@ -5,7 +5,7 @@
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>详情</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1076111_gfum1llshv.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1076111_gfum1llshv.css">
     <link rel="stylesheet" href="../css/common/reset.css">
     <link rel="stylesheet" href="../css/common/header.css">
     <link rel="stylesheet" href="../css/movieDetail.css">
@@ -20,9 +20,7 @@
 <div class="film-img">
     <img src="" alt="" id="filmImg" onerror="javascript:this.src='../img/loading.gif';">
 </div>
-<div class="main" id="main">
-
-</div>
+<div class="main" id="main"></div>
 <script>
     // 获取路径参数
     function GetUrlParam(paraName) {
@@ -76,42 +74,13 @@
                     '<div class="no-m">豆瓣评分</div>' +
                     '<div><b>' + data.rating.average + '</b></div>' +
                     '<div>';
-                if (data.rating.average <= 4 && data.rating.average >= 2) {
-                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>';
-                } else if (data.rating.average <= 6 && data.rating.average >= 4) {
-                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>';
-                } else if (data.rating.average <= 8 && data.rating.average >= 6) {
-                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>';
-                } else if (data.rating.average <= 10 && data.rating.average >= 8) {
-                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>';
-                } else if (data.rating.average == 10) {
-                    htm += '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>' +
-                        '<span class="rating-star rating-star-medium-full"></span>';
-                } else {
-                    htm += '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>' +
-                        '<span class="rating-star rating-star-medium-gray"></span>';
+                var stars = list[index].rating.stars.substring(0,1);
+                for (var star = 0; star < 5; star++) {
+                    if (star < stars) {
+                        htm += '<span class="rating-star rating-star-medium-full"></span>';
+                    } else {
+                        htm += '<span class="rating-star rating-star-medium-gray"></span>';
+                    }
                 }
                 htm += '</div>' +
                     '<div>' + data.ratings_count + '人</div>' +
