@@ -33,16 +33,14 @@
 </nav>
 <script>
     var num = null;
+    //   start数据的开始项    count请求的条数
     function loadMovie(start,count) {
-        var start = start; //   数据的开始项
-        var count = count; //   请求的条数
         $.ajax({
             type: 'get',
             url: 'https://api.douban.com/v2/movie/in_theaters?start=' + start + '&count=' + count,
             dataType: 'jsonp',
             success: function (data) {
                 var list = data.subjects;  //电影列表
-                console.log(list);
                 if (list != "") {
                     for (var i = 0; i < list.length; i++) {
                     var htm = '';
@@ -55,7 +53,7 @@
                             '<div class="item-graded">';
                         var stars = list[i].rating.stars.substring(0,1);
                         for (var star = 0; star < 5; star++) {
-                            if (star < stars) { 
+                            if (star < stars) {
                                 htm += '<span class="rating-star rating-star-medium-full"></span>';
                             } else {
                                 htm += '<span class="rating-star rating-star-medium-gray"></span>';
@@ -78,7 +76,6 @@
                         $("#list").append(htm);
                     }
                     num += list.length;
-                    console.log(list.length);
                 }else {
                     console.log("没有更多数据了");
                 }

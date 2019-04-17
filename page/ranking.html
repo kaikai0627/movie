@@ -33,9 +33,8 @@
 </nav>
 <script>
     var num = null;
+    //   start数据的开始项    count请求的条数
     function loadMovie(start,count) {
-        var start = start; //   数据的开始项
-        var count = count; //   请求的条数
         $.ajax({
             type: 'get',
             url: 'https://api.douban.com/v2/movie/in_theaters?start=' + start + '&count=' + count,
@@ -50,7 +49,7 @@
                             '<img src="' + list[i].images.small + '" alt="" onerror="javascript:this.src=\'../img/loading.gif\';">' +
                             '</div>' +
                             '<div class="item-synopsis">' +
-                            '<span class="ranking-number">top' + (i + 1) + '</span>' +
+                            // '<span class="ranking-number">top' + (i + 1) + '</span>' +
                             '<div class="item-title">' + list[i].title + '</div>' +
                             '<div class="item-graded">';
                         var stars = list[i].rating.stars.substring(0,1);

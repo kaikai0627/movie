@@ -74,7 +74,7 @@
                     '<div class="no-m">豆瓣评分</div>' +
                     '<div><b>' + data.rating.average + '</b></div>' +
                     '<div>';
-                var stars = list[index].rating.stars.substring(0,1);
+                var stars = data.rating.stars.substring(0,1);
                 for (var star = 0; star < 5; star++) {
                     if (star < stars) {
                         htm += '<span class="rating-star rating-star-medium-full"></span>';

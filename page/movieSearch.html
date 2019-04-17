@@ -25,18 +25,18 @@
 <div class="main search-main" id="list"></div>
 <script>
     var num = null;
-    function loadMovie(start,count,is) {
+
+    //   start数据的开始项    count请求的条数
+    function loadMovie(start, count, is) {
         var movie_name = $("#movieName").val(); //  要搜索的电影关键字
         if (movie_name) {
-            if(is){
+            if (is) {
                 var str = '';
                 str += '<div class="loading">' +
                     '<img src="../img/loading.gif">' +
                     '</div>';
                 $("#list").html(str);
             }
-            var start = start; //   数据的开始项
-            var count = count; //   请求的条数
             $.ajax({
                 type: 'get',
                 url: 'https://api.douban.com/v2/movie/search?q=' + movie_name + '&start=' + start + '&count=' + count,
@@ -44,7 +44,7 @@
                 success: function (data) {
                     var list = data.subjects;  //电影列表
                     // 使用is判断是加载更多电影还是搜索电影
-                    if(!is){
+                    if (!is) {
                         if (list.length == "") {
                             $("#list").html("没有搜索到，换个关键词吧");
                         }
@@ -52,15 +52,15 @@
                     // 如果电影列表不为空进入循环
                     if (list != "") {
                         for (var i = 0; i < list.length; i++) {
-                            var htm ='';
-                                htm += '<div class="movie-item clearfix" onclick="movieDetail(' + list[i].id + ')">' +
+                            var htm = '';
+                            htm += '<div class="movie-item clearfix" onclick="movieDetail(' + list[i].id + ')">' +
                                 '<div class="item-img pull-left">' +
                                 '<img src="' + list[i].images.large + '" alt="" onerror="javascript:this.src=\'../img/loading.gif\';">' +
                                 '</div>' +
                                 '<div class="item-synopsis">' +
                                 '<div class="item-title">' + list[i].title + '</div>' +
                                 '<div class="item-graded">';
-                            var stars = list[i].rating.stars.substring(0,1);
+                            var stars = list[i].rating.stars.substring(0, 1);
                             for (var star = 0; star < 5; star++) {
                                 if (star < stars) {
                                     htm += '<span class="rating-star rating-star-medium-full"></span>';
@@ -91,20 +91,21 @@
                         }
                         $(".loading").remove();
                         num += list.length;
-                    }else {
+                    } else {
                         console.log("没有更多数据了");
                     }
                 }
             })
         }
     }
+
     // 页面滚动到底部时加载更多
     $(window).scroll(function () {
         var scrollTop = $(this).scrollTop();
         var scrollHeight = $(document).height();
         var windowHeight = $(this).height();
         if (Math.ceil(scrollTop + windowHeight) == scrollHeight) {
-            loadMovie(num,20,false);
+            loadMovie(num, 20, false);
         }
     });
 
@@ -113,7 +114,7 @@
         // 回车事件 调用搜索按钮单击事件
         $(document).keydown(function (event) {
             if (event.keyCode == 13) {
-                loadMovie(num,20,true);
+                loadMovie(num, 20, true);
             }
         });
         // 获取焦点时显示搜索按钮 失去时隐藏
@@ -126,8 +127,8 @@
         });
     });
 
-    function movieDetail (id) {
-        window.location.href='movieDetails.html?id=' + id
+    function movieDetail(id) {
+        window.location.href = 'movieDetails.html?id=' + id
     }
 </script>
 </body>
